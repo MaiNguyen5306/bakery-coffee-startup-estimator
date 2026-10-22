@@ -8,13 +8,31 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from estimator.calculate import calculate
 from estimator.schemas import Scenario
+from estimator.staffing import staffing
 from estimator.loaders import assumptions, rows, ROOT
 from estimator.scenarios import reproduce
+from estimator.revenue import calculate_revenue, replay_revenue, RevenueScenario
+
+
+def live_scenario(data):
+    if not isinstance(data, dict):
+        raise ValueError('Scenario must be an object')
+    # Already-open tabs may retain this removed field after a frontend update.
+    # Espresso is now standard for both shop types, regardless of its old value.
+    current=dict(data)
+    current.pop('espresso', None)
+    return Scenario(**current)
 
 
 def execute(payload):
     if not isinstance(payload, dict):
         raise ValueError('Expected a JSON object')
+    if payload.get('action') == 'revenue_reproduce':
+        return replay_revenue(payload['export'])
+    if payload.get('action') == 'revenue':
+        inputs=payload.get('cost_inputs')
+        cost=calculate(live_scenario(inputs.get('scenario',{})),inputs.get('overrides'),inputs.get('mode','demo')) if inputs else None
+        return calculate_revenue(payload.get('revenue',{}),payload.get('channels'),payload.get('baskets'),cost,payload.get('linked_fingerprint'))
     if payload.get('action') == 'reproduce':
         return reproduce(json.dumps(payload['export'], allow_nan=False))
     if not isinstance(payload.get('overrides', {}), dict):
@@ -22,7 +40,7 @@ def execute(payload):
     scenario = payload.get('scenario', {})
     if not isinstance(scenario, dict):
         raise ValueError('Scenario must be an object')
-    return calculate(Scenario(**scenario), payload.get('overrides'), payload.get('mode', 'demo'))
+    return calculate(live_scenario(scenario), payload.get('overrides'), payload.get('mode', 'demo'))
 
 
 class handler(BaseHTTPRequestHandler):
@@ -36,8 +54,14 @@ class handler(BaseHTTPRequestHandler):
         self.wfile.write(encoded)
 
     def do_GET(self):
-        self.reply(200, {'scenario': asdict(Scenario()), 'assumptions': assumptions(),
+        defaults=asdict(Scenario())
+        defaults['owner_hours']=staffing(Scenario())['owner_requested']
+        self.reply(200, {'scenario': defaults, 'assumptions': assumptions(),
                          'sources': rows(ROOT / 'docs/source_register.csv'),
+                         'revenue_defaults': asdict(RevenueScenario()),
+                         'revenue_sources': rows(ROOT/'data/processed/revenue/sources.csv'),
+                         'menu_prices': rows(ROOT/'data/processed/revenue/menu_prices.csv'),
+                         'payment_fees': rows(ROOT/'data/processed/revenue/payment_fees.csv'),
                          'methodology': (ROOT / 'docs/methodology.md').read_text(),
                          'limitations': (ROOT / 'docs/limitations.md').read_text()})
 

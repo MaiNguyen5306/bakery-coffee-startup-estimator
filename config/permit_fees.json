@@ -1,0 +1,8 @@
+{
+  "year": 2026,
+  "source_id": "kingcounty_food_2026",
+  "page": "1 annual fees and quarterly proration; 2 plan review",
+  "annual_fees": {"general_0_12": [441,693,945], "general_13_50": [441,756,1008], "general_51_150": [441,756,1134], "general_151_250": [441,882,1260], "general_over_250": [441,945,1386], "bakery_no_seating": [567,630,945]},
+  "plan_review": {"new": {"base_hours":4,"base_fee":1008,"additional_hour":252}, "remodel": {"base_hours":3,"base_fee":756,"additional_hour":252}},
+  "scope": "Food permit only; city/state licensing and other opening requirements remain separate. Risk is a user scenario choice, not assigned by this model."
+}

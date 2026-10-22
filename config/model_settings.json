@@ -1,9 +1,9 @@
 {
-  "model_version": "0.1.0",
-  "data_version": "demo-2026-10-22",
+  "model_version": "0.5.1",
+  "data_version": "mixed-evidence-2026-10-22-v5",
   "estimate_year": 2026,
   "research_ready": false,
-  "note": "No verified complete assumption set. Research mode blocks totals.",
+  "note": "Derived floor-adjusted metro wages and official food fees; other required categories remain demo. Research totals blocked.",
   "wage_floor": {
     "Seattle": {
       "2026": 21.3

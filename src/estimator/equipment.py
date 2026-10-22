@@ -2,8 +2,8 @@ from .loaders import config
 
 def equipment(s):
     c = config("equipment_packages.json")
-    names = ["core"]
-    if s.espresso: names.append("espresso")
+    # Standard planning scope for both coffee shops and retail bakeries.
+    names = ["core", "espresso"]
     if s.business_type == "coffee": names.append("coffee")
     if s.production != "purchased": names.append(s.production)
     factor = c["tier_factors"][s.tier]

@@ -6,6 +6,9 @@ from estimator.validation import validate_tables
 from estimator.calculate import calculate
 from estimator.schemas import Scenario
 print("Research table schema validation:",validate_tables(ROOT/"data/processed"))
-print("Demo assumption rows:",len(assumptions()))
+print("Combined default assumption rows:",len(assumptions()))
 calculate(Scenario())
-print("Demo configuration valid. RESEARCH INCOMPLETE: templates are not evidence coverage.")
+print("Mixed-evidence configuration valid. RESEARCH INCOMPLETE: templates are not evidence coverage.")
+
+from estimator.revenue import validate_revenue_tables
+print("Revenue evidence:",validate_revenue_tables(ROOT/"data/processed/revenue"))

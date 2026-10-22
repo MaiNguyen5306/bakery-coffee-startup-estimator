@@ -229,3 +229,7 @@ outputs/*
 # Web frontend and Vercel local state
 node_modules/
 .vercel/
+
+# All original revenue downloads stay local pending redistribution review.
+data/raw/revenue/**
+!data/raw/revenue/README.md

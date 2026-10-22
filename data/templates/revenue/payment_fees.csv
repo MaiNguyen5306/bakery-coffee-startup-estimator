@@ -1,0 +1,1 @@
+payment_fee_id,source_id,processor,plan,market,channel,percentage,fixed_per_transaction,monthly_subscription,effective_start,effective_end,observed_date,evidence_status,conditions

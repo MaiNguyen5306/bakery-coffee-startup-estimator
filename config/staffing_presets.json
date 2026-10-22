@@ -1,10 +1,10 @@
 {
-  "version": "demo-1",
+  "version": "demo-3",
   "owner_operated": {
-    "service_workers": 1.5
+    "owner_hours": 40
   },
   "staffed": {
-    "service_workers": 2
+    "owner_hours": 0
   },
   "production_weekly_hours": {
     "purchased": 0,

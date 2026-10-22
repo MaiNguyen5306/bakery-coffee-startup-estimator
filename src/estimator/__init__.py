@@ -1,2 +1,2 @@
-MODEL_VERSION = "0.1.0"
-DATA_VERSION = "demo-2026-10-22"
+MODEL_VERSION = "0.5.1"
+DATA_VERSION = "mixed-evidence-2026-10-22-v5"

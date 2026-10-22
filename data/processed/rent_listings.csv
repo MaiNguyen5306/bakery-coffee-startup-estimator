@@ -1,1 +1,2 @@
 listing_id,source_id,address_or_identifier,neighborhood,sqft,base_rent_quote,quote_unit,lease_type,additional_rent_quote,additional_rent_unit,food_service_status,space_condition,observed_date,notes
+ballard_5615_24th,ballard_brochure,5615 24th Ave NW Seattle WA 98107,Ballard,1200,34,USD/sqft/year,NNN,,,unknown; nail salon,existing nail salon,2026-10-22,Historical/undated public brochure. Unknown NNN remains blank. Ineligible food-service comparable; not used for citywide defaults.

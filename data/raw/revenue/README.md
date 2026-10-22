@@ -1,0 +1,2 @@
+# Revenue evidence originals
+Owner-supplied PDF snapshots are local-only. Do not stage or deploy original menus or payment documents. Record hashes, page references and snapshot dates in processed source tables. Menu prices are individual-store/chain website observations, not demand, average baskets or Seattle-wide statistics. Supplier quotes belong under suppliers/ with permission and provenance. The supplied Pinoyshki snapshot contains an embedded menu viewer but no extractable comparable prices; it is not numeric price evidence.
