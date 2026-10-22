@@ -1,0 +1,2 @@
+observation_id,source_id,category,item,specification,city,neighborhood,business_type,condition,quality_tier,price,currency,unit,price_period,tax_included,shipping_included,installation_included,effective_start,effective_end,observed_date,notes
+seattle_min_wage_2026,seattle_ols_2026,wages,City minimum hourly wage,All employers; employees working within Seattle,Seattle,,,,,21.3,USD,USD/hour,hour,,,,2026-01-01,2026-12-31,2026-10-22,Official published floor; not an occupation benchmark

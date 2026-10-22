@@ -1,0 +1,6 @@
+# Limitations
+This is an engineering demo, not a research-ready estimate. No completed-business budgets validate its accuracy. Seattle 2026 is the only scenario year; the published 2026 Seattle wage floor is enforced, while role wage ranges remain demo assumptions. Research mode blocks all totals. Unsupported cities, years, used equipment and neighborhood estimates are unavailable.
+
+Coverage gaps are explicitly unfunded unless the user adds paid hours. The tool does not produce shift schedules, overtime calculations or a compliant facility design. Equipment capacity/voltage, menu risk, seating, ventilation, accessibility and utility usage require project-specific review. Seats affect furniture only; they do not classify food permit risk. Taxes and employer costs remain approximations. All services and inventory are allowances; no sales or profitability model exists.
+
+Property purchase, goodwill, franchises, vehicles, home kitchens, alcohol, financing and loan recommendations are excluded. Owner draw is optional and separate from payroll. No lease prepayment beyond preopening rent and deposits, tax depreciation, financing expense or tenant reimbursement timing is modeled. Advanced quantity-based utility/inventory models and an explicit contractor quote override remain future work.

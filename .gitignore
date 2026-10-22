@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.DS_Store
+data/raw/**/*.pdf
+data/raw/**/*.xlsx
+data/raw/**/*.zip
+data/interim/*
+outputs/*
+
+# Web frontend and Vercel local state
+node_modules/
+.vercel/

@@ -1,0 +1,13 @@
+{
+  "model_version": "0.1.0",
+  "data_version": "demo-2026-10-22",
+  "estimate_year": 2026,
+  "research_ready": false,
+  "note": "No verified complete assumption set. Research mode blocks totals.",
+  "wage_floor": {
+    "Seattle": {
+      "2026": 21.3
+    }
+  },
+  "wage_floor_source": "seattle_ols_2026"
+}

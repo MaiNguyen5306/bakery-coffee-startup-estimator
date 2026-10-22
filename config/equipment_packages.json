@@ -1,0 +1,128 @@
+{
+  "version": "demo-1",
+  "status": "demo",
+  "tier_factors": {
+    "standard": 1,
+    "premium": 1.5
+  },
+  "packages": {
+    "core": [
+      [
+        "refrigeration",
+        1,
+        2000,
+        4000
+      ],
+      [
+        "sanitation",
+        1,
+        3500,
+        6500
+      ],
+      [
+        "water_treatment",
+        1,
+        800,
+        1600
+      ],
+      [
+        "smallwares",
+        1,
+        1000,
+        2000
+      ],
+      [
+        "pos_hardware",
+        1,
+        800,
+        1600
+      ],
+      [
+        "display",
+        1,
+        2000,
+        4500
+      ]
+    ],
+    "espresso": [
+      [
+        "espresso_machine",
+        1,
+        7000,
+        14000
+      ],
+      [
+        "grinders",
+        2,
+        800,
+        1600
+      ]
+    ],
+    "coffee": [
+      [
+        "batch_brewer",
+        1,
+        800,
+        1600
+      ],
+      [
+        "ice_machine",
+        1,
+        2000,
+        4000
+      ]
+    ],
+    "limited": [
+      [
+        "commercial_convection_oven",
+        1,
+        3500,
+        7000
+      ],
+      [
+        "mixer",
+        1,
+        1200,
+        2400
+      ],
+      [
+        "racks_tables",
+        1,
+        1500,
+        3000
+      ]
+    ],
+    "onsite": [
+      [
+        "production_oven",
+        1,
+        10000,
+        20000
+      ],
+      [
+        "production_mixer",
+        1,
+        4000,
+        8000
+      ],
+      [
+        "proofer",
+        1,
+        3000,
+        6000
+      ],
+      [
+        "racks_tables",
+        1,
+        3000,
+        6000
+      ],
+      [
+        "production_refrigeration",
+        1,
+        2500,
+        5000
+      ]
+    ]
+  }
+}

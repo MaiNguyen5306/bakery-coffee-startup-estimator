@@ -1,0 +1,14 @@
+{
+  "version": "demo-1",
+  "owner_operated": {
+    "service_workers": 1.5
+  },
+  "staffed": {
+    "service_workers": 2
+  },
+  "production_weekly_hours": {
+    "purchased": 0,
+    "limited": 20,
+    "onsite": 60
+  }
+}

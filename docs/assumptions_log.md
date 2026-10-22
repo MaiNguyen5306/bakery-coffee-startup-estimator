@@ -1,0 +1,2 @@
+# Assumptions log
+2026-10-22 · All numeric cost defaults originated as engineering demo fixtures, not observed prices. Values are in data/demo/assumptions.csv; equipment and staffing examples are in versioned config JSON. No factual source IDs are assigned to demo prices. Changing a value in the editor produces an unverified user override in exports. Research-ready promotion is intentionally unavailable until applicable evidence is complete.

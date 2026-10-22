@@ -1,0 +1,20 @@
+# Methodology · model 0.1.0
+All published totals currently use demo data. Low/high are consistent illustrative configurations. They are not measured percentiles or a statistical interval. No midpoint is treated as an expected value.
+
+Rent = sqft × (annual base + annual additional rent) / 12. The deposit assumes the same rent basis and is refundable, separate from expense. Preopening rent covers only months before operations; month 1 operating rent is paid in reserve. No first/last operating month prepayment or tenant allowance is assumed.
+
+Buildout = sqft × condition rate. Demo scope includes building trades; equipment hookups and professional design are separately budgeted. Package inclusion must be reconciled before replacing with a quote. No user quote support yet. An existing restaurant still needs compliance review.
+
+Equipment is selected by production package, quantity and tier. Premium changes only equipment prices. All equipment is purchased new in this model; used prices are unsupported. Tax applies only to equipment and its freight/hookups under an explicit unverified demo basis. Freight/tax never apply to payroll, deposits or official fees. Opening fees are allowances, not regulatory determinations.
+
+Paid role hours × 52/12 × hourly wage gives base payroll. Employer expense uses a labeled percentage approximation; no claim of an official aggregate tax rate. Training uses whole-team hours once before opening. Service requirement = days × (2 × open hours + 2 setup/close hours). Owner coverage is capped at selected hours and allocated to service only. Presets can leave service coverage gaps, shown separately and not secretly filled. Production adds 0/20/60 weekly paid hours for purchased/limited/on-site. Minimum headcount = ceil(role hours/40); overtime and actual staffing schedules are unresolved.
+
+Monthly planned-activity budget includes operating rent, payroll, baseline utilities, services, maintenance, replenishment, optional owner draw and monthly equivalents of insurance/annual permits. Production adds explicit 20%/60% demo utilities and replenishment allowances; other categories are unchanged. These usage assumptions are not verified bills or supplier quotes. Opening stock is separate from subsequent months' replenishment. No revenue collections are offset.
+
+Reserve cash schedules actual payments month by month. Insurance and annual permits are paid at opening for months 1–12, then renewed in month 13, 25, etc. Monthly equivalents are excluded from cash while prepaid. Fixed-only reserve excludes replenishment; it still includes the planned payroll, utilities and services and annual renewals. Zero months yields zero reserve.
+
+Contingency applies once to buildout, equipment (including freight/tax), training, initial inventory, professional services and launch. It excludes refundable deposits, occupancy, reserve and fixed fee allowances. Before-opening cash is reported before contingency; total funding = before-opening cash + contingency + reserve.
+
+Selection and evidence: research totals are blocked globally until a versioned, validated applicable assumption set exists. Header-only tables pass schema checks but do not imply research completeness. Do not auto-promote file contents into defaults. Sources need effective dates, provenance and applicability. Rent comparables must normalize quote periods, retain missing CAM and deduplicate addresses; convenience-sample min/max is not a population interval. BLS metro role medians remain benchmarks, not Seattle city wage rules. The official 2026 Seattle floor of $21.30/hour is enforced on both role wage endpoints, including user overrides; unsupported years are rejected. Source reuse terms must be reviewed before distribution.
+
+The React interface sends scenario inputs and overrides to `/api/estimate`, a Vercel Python Function using the same independent calculation package. No financial calculations are duplicated in the frontend. Saved baseline comparisons remain in browser memory; no account or server persistence is used.
