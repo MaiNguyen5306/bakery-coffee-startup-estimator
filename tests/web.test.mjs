@@ -196,3 +196,49 @@ test('Automatic Revenue updates ignore superseded responses',async()=>{
   assert.match(revenue.querySelector('.funding-number').textContent,/45.11/);
  } finally {globalThis.fetch=originalFetch;}
 });
+
+test('Cost details groups every ledger line into seven read-only collapsed sections',async()=>{
+ await click(buttons(nav(),'Cost'));await settle();
+ await click(buttons(document.querySelector('nav[aria-label="Estimate views"]'),'Cost details'));
+ const panel=document.querySelector('.cost-detail-groups');
+ const groups=[...panel.querySelectorAll('details.cost-detail-group')];
+ assert.equal(groups.length,7);
+ assert.ok(groups.every(g=>!g.open));
+ assert.match(groups[0].querySelector('summary').textContent,/Buildout/);
+ assert.match(groups[6].querySelector('summary').textContent,/Operating reserve/);
+ assert.equal(panel.querySelectorAll('input').length,0);
+ assert.doesNotMatch(panel.textContent,/Edit this group|Reset cost assumptions/);
+ const expected=py("from api.estimate import execute; import json; print(json.dumps(len(execute({'scenario':{}})['lines'])))");
+ assert.equal(groups.slice(0,6).reduce((n,g)=>n+g.querySelectorAll('tbody tr').length,0),expected);
+ await click(groups[1].querySelector('summary'));
+ assert.equal(groups[1].open,true);
+ assert.match(groups[1].textContent,/espresso machine/);
+ await click(groups[6].querySelector('summary'));
+ assert.match(groups[6].textContent,/Reserve cash/);
+});
+
+test('Cost navigation omits Compare and methods has three collapsed dropdowns',async()=>{
+ await click(buttons(nav(),'Cost'));await settle();
+ const tabs=document.querySelector('nav[aria-label="Estimate views"]');
+ assert.equal(buttons(tabs,'Compare'),undefined);
+ await click(buttons(tabs,'Method & sources'));
+ const card=[...document.querySelectorAll('.cost-workspace .card')].find(c=>c.textContent.includes('Assumptions in plain sight.'));
+ const sections=[...card.querySelectorAll('details')];
+ assert.deepEqual(sections.map(d=>d.querySelector('summary').textContent),['Source register','Calculation methodology','Limitations']);
+ assert.ok(sections.every(d=>!d.open));
+ await click(sections[0].querySelector('summary'));
+ assert.equal(sections[0].open,true);
+ assert.ok(sections[0].querySelectorAll('.source-list li').length>0);
+});
+
+test('Overview chart shows four largest categories plus other and links to full details',async()=>{
+ await click(buttons(nav(),'Cost'));await settle();
+ const tabs=document.querySelector('nav[aria-label="Estimate views"]');
+ await click(buttons(tabs,'Overview'));
+ const chart=document.querySelector('.breakdown');
+ assert.equal(chart.querySelectorAll('.bar-row').length,5);
+ assert.match(chart.querySelector('.bar-row:last-of-type')?.textContent||chart.textContent,/Other opening costs/);
+ await click(buttons(chart,'View full breakdown'));
+ assert.equal(buttons(tabs,'Cost details').getAttribute('aria-current'),'page');
+ assert.equal(document.querySelectorAll('.cost-detail-group').length,7);
+});
